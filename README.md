@@ -15,7 +15,8 @@
 2. 在本项目目录执行：
 
 ```bash
-git remote add origin https://github.com/你的用户名/仓库名.git
+# SSH（你已配置好密钥时推荐）
+git remote add origin git@github.com:zx67834/coral-king-focus.git
 git push -u origin main
 ```
 
