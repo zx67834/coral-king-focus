@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数独 - 珊瑚王的专注游戏</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function () {
+      var t = localStorage.getItem("app-theme") || "green";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+</head>
+<body class="sudoku-page">
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">▦</span>
+        <h1>珊瑚王的专注游戏</h1>
+      </div>
+      <div class="header-actions">
+        <div class="theme-switcher" role="group" aria-label="背景主题">
+          <button type="button" class="theme-dot" data-theme="dark" title="深色" aria-label="深色"></button>
+          <button type="button" class="theme-dot" data-theme="light" title="浅色" aria-label="浅色"></button>
+          <button type="button" class="theme-dot" data-theme="green" title="护眼绿" aria-label="护眼绿"></button>
+          <button type="button" class="theme-dot" data-theme="warm" title="暖色" aria-label="暖色"></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="panel-sudoku" class="panel active" role="tabpanel">
+        <div class="sudoku-page-top">
+          <a href="index.html" class="btn btn-ghost">← 返回首页</a>
+          <span class="standalone-badge">独立模式 · 无提示</span>
+        </div>
+        <div class="game-layout">
+          <div class="board-wrap">
+            <div id="sudoku-grid" class="sudoku-grid" aria-label="数独棋盘"></div>
+          </div>
+          <aside class="sidebar">
+            <div class="stat-row">
+              <span class="stat-label">用时</span>
+              <span id="sudoku-timer" class="stat-value mono">00:00</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">难度</span>
+              <select id="sudoku-difficulty" class="select">
+                <option value="easy">简单</option>
+                <option value="medium" selected>中等</option>
+                <option value="hard">困难</option>
+                <option value="expert">专家</option>
+              </select>
+            </div>
+            <div class="numpad" id="sudoku-numpad"></div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-secondary" id="sudoku-note-toggle">笔记模式</button>
+              <button type="button" class="btn btn-secondary" id="sudoku-erase">擦除</button>
+            </div>
+            <div class="btn-group sudoku-assist" id="sudoku-assist">
+              <button type="button" class="btn btn-ghost" id="sudoku-hint">提示</button>
+              <button type="button" class="btn btn-ghost" id="sudoku-check">检查</button>
+            </div>
+            <button type="button" class="btn btn-primary btn-block" id="sudoku-new">新游戏</button>
+            <button type="button" class="btn btn-secondary btn-block" id="sudoku-submit">提交答案</button>
+            <div class="history-box">
+              <div class="history-head">
+                <span class="stat-label">提交记录</span>
+                <span class="stat-value mono" id="sudoku-history-count">0</span>
+              </div>
+              <ul id="sudoku-history-list" class="history-list">
+                <li class="history-empty">还没有提交记录</li>
+              </ul>
+              <div class="btn-group">
+                <button type="button" class="btn btn-ghost" id="sudoku-export-history">导出</button>
+                <button type="button" class="btn btn-ghost" id="sudoku-clear-history">清空</button>
+              </div>
+            </div>
+            <p id="sudoku-message" class="message" aria-live="polite"></p>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="js/sudoku-history.js"></script>
+  <script src="js/sudoku.js"></script>
+  <script src="js/app-sudoku-only.js"></script>
+</body>
+</html>
