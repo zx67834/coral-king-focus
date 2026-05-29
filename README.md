@@ -7,7 +7,11 @@
 1. 双击 `index.html`，或
 2. `npx serve .` 后访问终端提示的地址
 
-## 部署到 GitHub Pages（推荐）
+## 部署到 Netlify（国内访问推荐）
+
+见 **[DEPLOY-NETLIFY.md](./DEPLOY-NETLIFY.md)**：用 GitHub 仓库 `coral-king-focus` 导入，Build 留空，Publish 选根目录 `.`。
+
+## 部署到 GitHub Pages
 
 ### 第一次
 
